@@ -12,13 +12,12 @@ body{
 }
 
 .top{
-    
-    height:9rem;
-    line-height: 9rem;
+    margin-top:1rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
-.top input, .top button, .caja{
+.top input, .top .buscar, .caja, .recomendado{
     font-family: 'Raleway', sans-serif;
     font-size: 2rem;
     padding: 0.6rem;
@@ -26,13 +25,22 @@ body{
     background-color: rgba(0, 0, 0, 0);
     color: white;
     border: solid 1px white;
+    transition: 0.1s ;
+}
+.top button:hover{
+    background-color: rgba(255,255,255,0.3);
     
 }
+.top button:focus{
+    outline: 1px white solid;
+    background-color: rgba(255,255,255,0.3);
+}
+
 .top input{
     width: 25%;
     border: none;
 }
-.top button{
+.top .buscar{
     height:  100%;
     width: 3.4rem;
     line-height: 0;
@@ -52,6 +60,16 @@ body{
     color: white;
     user-select: none;
 }
+.sb{
+    margin-top:1rem;
+}
+.recomendado{
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.4rem;
+}
+
+
 .caja{
     display: inline;
     position: relative;
@@ -63,8 +81,14 @@ body{
 }
 
 .postal{
+    /*movil
+    max-height: 100%;
+    height: auto;
+    width:auto;*/
+
     height: 25rem;
     width:auto;
+    vertical-align: middle;
     position: relative;
     user-select: none; 
 }
@@ -82,8 +106,9 @@ body{
     z-index: 2;
 }
 .postal img{
-    height: 100%;
-    width: auto;
+    max-height: 100%;
+    max-width: 95vw;
+    height: auto;
 }
 .postal h3{
     transform: translate(0,-20px);
@@ -110,6 +135,7 @@ body{
     margin: 0.6rem;
 }
 .zoom{
+    
     background-color: rgba(0,0,0, 0.7);
     z-index: 4;
     position: fixed;
@@ -124,7 +150,11 @@ body{
 .zoom img{
     position: fixed;
     right: 50%;
-    transform: translate(50%,0);
+    bottom:50vh;
+    transform: translate(50%,50%);
+    max-height: 100vh;
+    height: auto;
+    max-width: 100vw;
 }
 .zoom h3 , .zoom a{
     z-index: 5;

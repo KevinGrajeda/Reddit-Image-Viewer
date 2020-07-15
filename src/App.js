@@ -1,5 +1,6 @@
 import React from "react"
 import Postal from "./components/Postal"
+import Recomendados from "./components/Recomendados"
 
 class App extends React.Component{
     constructor(){
@@ -12,15 +13,16 @@ class App extends React.Component{
         }
         this.handleClick=this.handleClick.bind(this);
         this.handleKeyUp=this.handleKeyUp.bind(this);
+        this.busqueda=this.busqueda.bind(this);
     }
 
-    busqueda(url){
-        this.setState({cargando:true, estado:"buscando"});
+    busqueda(sr){
+        const url=`https://www.reddit.com/r/${sr}/hot/.json`
+        this.setState({cargando:true, estado:"...",subreddit:sr});
         fetch(url)
         .then(res=>res.json())
         .then(res=> {
             const resultados=res.data.children.map((id)=>{
-                //console.log(id.data);
                 return{
                     titulo: id.data.title,
                     url: id.data.url,
@@ -39,10 +41,8 @@ class App extends React.Component{
     }
 
     handleClick(){
-        //https://www.reddit.com/r/fotosmexico/new/.json
         const subReddit=document.getElementById("subreddit").value;
-        this.setState({subreddit:subReddit})
-        this.busqueda(`https://www.reddit.com/r/${subReddit}/new/.json`);
+        this.busqueda(subReddit);
     }
 
     handleKeyUp(event){
@@ -54,7 +54,7 @@ class App extends React.Component{
 
     componentDidMount(){
         
-        this.busqueda(`https://www.reddit.com/r/${this.state.subreddit}/new/.json`);
+        this.busqueda(this.state.subreddit);
         
         
     }
@@ -68,9 +68,10 @@ class App extends React.Component{
                 <div className="caja">
                     <a href={"https://www.reddit.com/r/"+this.state.subreddit} className="prefijo">r/</a>
                     <input placeholder={this.state.subreddit} spellCheck="false" onKeyUp={evt => this.handleKeyUp(evt)} id="subreddit"/>
-                    <button id="buscar" onClick={this.handleClick}><img alt=">" src="https://lh3.googleusercontent.com/proxy/_H9cqBKbs4BCfrSpfAi_H6ihUV7bUhhXrqDlGLY4ueHycbvM_b_yOExKHGYLz5SyUSKO6CSi2wkh-jhBSXMGhUmTzJaoNKjnqXQrrg"></img></button>
+                    <button id="buscar" className="buscar" onClick={this.handleClick}><img alt=">" src="https://lh3.googleusercontent.com/proxy/_H9cqBKbs4BCfrSpfAi_H6ihUV7bUhhXrqDlGLY4ueHycbvM_b_yOExKHGYLz5SyUSKO6CSi2wkh-jhBSXMGhUmTzJaoNKjnqXQrrg"></img></button>
 
                 </div>
+                <Recomendados sr={this.state.subreddit} buscar={this.busqueda}/>
             </div>
             
             <div className="contenedor">
