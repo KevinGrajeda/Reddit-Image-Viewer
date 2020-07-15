@@ -16,13 +16,11 @@ class Postal extends React.Component{
     }
     render(){
         return(
-            <div>
-                <div className={this.state.isZoom?"postal zoom":"postal"}>
-                    <div className="hover" onClick={this.handleClick}/>
-                    <img   src={this.props.imagen.url}  alt=""/>
-                    <h3>{this.props.imagen.titulo}</h3>
-                    <h4>r/{this.props.imagen.autor}</h4>
-                </div>
+            <div className={this.state.isZoom?"postal zoom":"postal"}>
+                <div className="hover" onClick={this.handleClick}/>
+                <img   src={this.props.imagen.url}  alt=""/>
+                <h3>{this.props.imagen.titulo}</h3>
+                <a href={"https://reddit.com"+this.props.imagen.link_publicacion}>u/{this.props.imagen.autor}</a>
             </div>
         )
     }

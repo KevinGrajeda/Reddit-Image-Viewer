@@ -7,8 +7,54 @@
 
 body{
     font-family: 'Raleway', sans-serif;
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(39, 39, 39);
     color:white;
+}
+
+.top{
+    
+    height:9rem;
+    line-height: 9rem;
+    text-align: center;
+}
+
+.top input, .top button, .caja{
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    padding: 0.6rem;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: solid 1px white;
+    
+}
+.top input{
+    width: 25%;
+    border: none;
+}
+.top button{
+    height:  100%;
+    width: 3.4rem;
+    line-height: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: none;
+    border-left: solid 1px white;
+}
+.top button img{
+    cursor: pointer;
+    height: 2.5rem;
+    
+}
+.top .prefijo{
+    color: white;
+    user-select: none;
+}
+.caja{
+    display: inline;
+    position: relative;
 }
 .contenedor{
     display: flex;
@@ -17,16 +63,16 @@ body{
 }
 
 .postal{
-    height: 400px;
-    width: auto;
+    height: 25rem;
+    width:auto;
     position: relative;
     user-select: none; 
 }
-.hover:hover ~ h3,.hover:hover ~ h4{
+.hover:hover ~ h3,.hover:hover ~ a{
     transform: translate(0,0);
     z-index: 1;
     color:rgba(255,255,255,1);
-    text-shadow:0 0 2px rgba(0,0,0, 0.6);
+    text-shadow:0 0 2px rgba(0,0,0, 1);
 }
 .hover{
     height: 100%;
@@ -44,22 +90,24 @@ body{
     z-index: -1;
     text-shadow:0 0 2px rgba(0,0,0, 0);
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 0;
+    top: 0;
     color:rgba(0,0,0,0);
     transition: 0.3s ease;
     font-weight: normal;
+    margin: 0.6rem;
 }
-.postal h4{
+.postal a{
     transform: translate(0,20px);
     z-index: -1;
     text-shadow:0 0 2px rgba(0,0,0, 0);
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    right: 0;
+    bottom: 0;
     color:rgba(0,0,0,0);
     transition: 0.3s ease;
     font-weight: normal;
+    margin: 0.6rem;
 }
 .zoom{
     background-color: rgba(0,0,0, 0.7);
@@ -70,11 +118,22 @@ body{
     width: 100%;
     height: 100%;
 }
+.zoom .hover{
+    z-index: 1;
+}
 .zoom img{
     position: fixed;
     right: 50%;
     transform: translate(50%,0);
 }
-.zoom h3,.zoom h3{
+.zoom h3 , .zoom a{
     z-index: 5;
+    font-size:1.5rem;
+    color: white;
+    transform: translate(0,0);
+    text-shadow:0 0 3px rgba(0,0,0, 1);
+}
+.zoom a{
+    cursor: pointer;
+    text-decoration: underline;
 }
