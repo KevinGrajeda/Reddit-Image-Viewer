@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Reddit-Image-visualizer/static/css/main.15a61009.chunk.css",
-    "main.js": "/Reddit-Image-visualizer/static/js/main.4ee523e4.chunk.js",
-    "main.js.map": "/Reddit-Image-visualizer/static/js/main.4ee523e4.chunk.js.map",
+    "main.css": "/Reddit-Image-visualizer/static/css/main.048b77d8.chunk.css",
+    "main.js": "/Reddit-Image-visualizer/static/js/main.0b3baf24.chunk.js",
+    "main.js.map": "/Reddit-Image-visualizer/static/js/main.0b3baf24.chunk.js.map",
     "runtime-main.js": "/Reddit-Image-visualizer/static/js/runtime-main.8f0fe61d.js",
     "runtime-main.js.map": "/Reddit-Image-visualizer/static/js/runtime-main.8f0fe61d.js.map",
     "static/js/2.de370890.chunk.js": "/Reddit-Image-visualizer/static/js/2.de370890.chunk.js",
     "static/js/2.de370890.chunk.js.map": "/Reddit-Image-visualizer/static/js/2.de370890.chunk.js.map",
     "index.html": "/Reddit-Image-visualizer/index.html",
-    "precache-manifest.c65567e6780f64396ed594a1e6610fa7.js": "/Reddit-Image-visualizer/precache-manifest.c65567e6780f64396ed594a1e6610fa7.js",
+    "precache-manifest.d4d01586b0793ba68dbe83dafe9afc42.js": "/Reddit-Image-visualizer/precache-manifest.d4d01586b0793ba68dbe83dafe9afc42.js",
     "service-worker.js": "/Reddit-Image-visualizer/service-worker.js",
-    "static/css/main.15a61009.chunk.css.map": "/Reddit-Image-visualizer/static/css/main.15a61009.chunk.css.map",
+    "static/css/main.048b77d8.chunk.css.map": "/Reddit-Image-visualizer/static/css/main.048b77d8.chunk.css.map",
     "static/js/2.de370890.chunk.js.LICENSE.txt": "/Reddit-Image-visualizer/static/js/2.de370890.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8f0fe61d.js",
     "static/js/2.de370890.chunk.js",
-    "static/css/main.15a61009.chunk.css",
-    "static/js/main.4ee523e4.chunk.js"
+    "static/css/main.048b77d8.chunk.css",
+    "static/js/main.0b3baf24.chunk.js"
   ]
 }
