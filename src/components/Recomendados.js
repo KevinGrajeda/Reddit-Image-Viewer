@@ -12,21 +12,21 @@ class Recomendados extends React.Component{
     render(){
         let botones=[];
         let subreddits=[
-            "photographs",
+            "Photographs",
             "AnalogPhotography",
             "FotosMexico",
-            "generative",
-            "heavymind",
-            "imaginarylandscapes",
-            "printmaking",
-            "streetart",
-            "isometric",
+            "Generative",
+            "HeavyMind",
+            "ImaginaryLandscapes",
+            "PrintMaking",
+            "StreetArt",
+            "Isometric",
             "Glitch_Art",
             "AccidentalWesAnderson",
-            "unstirredpaint",
-            "museum",
+            "UnstirredPaint",
+            "Museum",
         ];
-        
+
         subreddits=subreddits.map((sr,id)=>{
             return <button key={id} onClick={()=> this.props.buscar(sr)} className="recomendado">{""+sr}</button>
         });
@@ -38,7 +38,6 @@ class Recomendados extends React.Component{
             subreddits.splice(random,1);
 
         }
-        console.log("kk");
         return(
             <div className="sb">
                 {botones}

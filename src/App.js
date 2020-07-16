@@ -64,11 +64,12 @@ class App extends React.Component{
 
         return(
         <div>
+            <title>imagen</title>
             <div className="top">
                 <div className="caja">
                     <a href={"https://www.reddit.com/r/"+this.state.subreddit} className="prefijo">r/</a>
                     <input placeholder={this.state.subreddit} spellCheck="false" onKeyUp={evt => this.handleKeyUp(evt)} id="subreddit"/>
-                    <button id="buscar" className="buscar" onClick={this.handleClick}><img alt=">" src="https://lh3.googleusercontent.com/proxy/_H9cqBKbs4BCfrSpfAi_H6ihUV7bUhhXrqDlGLY4ueHycbvM_b_yOExKHGYLz5SyUSKO6CSi2wkh-jhBSXMGhUmTzJaoNKjnqXQrrg"></img></button>
+                <button id="buscar" className="buscar" onClick={this.handleClick}><img alt=">" src="https://www.queryly.com/images/whitesearchicon.png  "></img></button>
 
                 </div>
                 <Recomendados sr={this.state.subreddit} buscar={this.busqueda}/>
