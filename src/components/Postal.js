@@ -23,8 +23,8 @@ class Postal extends React.Component{
         })
     }
     render(){
-        console.log(this.props.imagen.urls);
-        let imgRes=this.props.imagen.urls.find((res)=>res.height>=400).url.replace(/&amp;/g, '&');
+        let imgRes=this.props.imagen.urls.find((res)=>res.height>=400 && res.width>=600);
+        imgRes=imgRes?imgRes.url.replace(/&amp;/g, '&'):this.props.imagen.urlFull;
         if(this.state.imageError){
             imgRes=this.props.imagen.urls[this.props.imagen.urls.length-1].url.replace(/&amp;/g, '&');
         }
