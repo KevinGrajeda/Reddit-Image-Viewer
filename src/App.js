@@ -17,27 +17,35 @@ class App extends React.Component{
     }
 
     busqueda(sr){
+        document.getElementById("subreddit").value="";
         const url=`https://www.reddit.com/r/${sr}/hot/.json`
         this.setState({cargando:true, estado:"...",subreddit:sr});
         fetch(url)
         .then(res=>res.json())
         .then(res=> {
-            const resultados=res.data.children.map((id)=>{
-                return{
-                    titulo: id.data.title,
-                    url: id.data.url,
-                    id: id.data.id,
-                    autor: id.data.author,
-                    link_publicacion: id.data.permalink,
-                };
-            })
+            const resultados=res.data.children.reduce((result,id)=>{
+                if(id.data.preview){//es imagen?
+                    result.push({
+                        titulo: id.data.title,
+                        urlFull: id.data.url,
+                        urls:id.data.preview.images[0].resolutions,
+                        id: id.data.id,
+                        autor: id.data.author,
+                        link_publicacion: id.data.permalink,
+                    });
+                }
+                return result;
+            },[]);
+
             this.setState({
                 imagenes: resultados,
                 cargando: false,
             });
         }).catch(error=>{
+            console.log(error)
             this.setState({estado:"no encontrado"})
         });
+        
     }
 
     handleClick(){
@@ -53,10 +61,7 @@ class App extends React.Component{
     }
 
     componentDidMount(){
-        
         this.busqueda(this.state.subreddit);
-        
-        
     }
 
     render(){
@@ -68,7 +73,7 @@ class App extends React.Component{
             <div className="top">
                 <div className="caja">
                     <a href={"https://www.reddit.com/r/"+this.state.subreddit} className="prefijo">r/</a>
-                    <input placeholder={this.state.subreddit} spellCheck="false" onKeyUp={evt => this.handleKeyUp(evt)} id="subreddit"/>
+                    <input label="buscar" placeholder={this.state.subreddit} spellCheck="false" onKeyUp={evt => this.handleKeyUp(evt)} id="subreddit"/>
                 <button id="buscar" className="buscar" onClick={this.handleClick}><img alt=">" src="https://www.queryly.com/images/whitesearchicon.png  "></img></button>
 
                 </div>
