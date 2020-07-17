@@ -1,6 +1,6 @@
 {
-  "homepage": "http://KevinGrajeda.github.io/Reddit-Image-visualizer",
-  "name": "my-app",
+  "homepage": "https://kevingrajeda.github.io/Reddit-Image-Viewer/",
+  "name": "redditimageviewer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
