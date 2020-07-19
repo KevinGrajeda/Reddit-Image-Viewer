@@ -18,7 +18,7 @@ body{
     text-align: center;
 }
 
-.top input, .top .buscar, .caja, .recomendado{
+.top input, .top .buscar, .caja, .recomendado,.top .nav{
     font-family: 'Raleway', sans-serif;
     font-size: 2rem;
     padding: 0.6rem;
