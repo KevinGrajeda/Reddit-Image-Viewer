@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ba903e8b50487805a746048f6174f33e",
+    "revision": "d8818b3e4624b83567b87192fe9f77fa",
     "url": "/Reddit-Image-Viewer/index.html"
   },
   {
-    "revision": "3e043c144ca6a1c87432",
-    "url": "/Reddit-Image-Viewer/static/css/main.7607e400.chunk.css"
+    "revision": "196002974d77eb9f558f",
+    "url": "/Reddit-Image-Viewer/static/css/main.cbb15012.chunk.css"
   },
   {
     "revision": "cd0cace8782d789e83ae",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Reddit-Image-Viewer/static/js/2.45134c36.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3e043c144ca6a1c87432",
-    "url": "/Reddit-Image-Viewer/static/js/main.4a42d50e.chunk.js"
+    "revision": "196002974d77eb9f558f",
+    "url": "/Reddit-Image-Viewer/static/js/main.af67b9d2.chunk.js"
   },
   {
     "revision": "73ad3390925f5a975d03",
