@@ -11,14 +11,19 @@ body{
     background-color: rgb(39, 39, 39);
     color:white;
 }
-
+.recomendados{
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top:0;
+}
 .top{
     margin-top:1rem;
     margin-bottom: 1rem;
     text-align: center;
 }
 
-.top input, .top .buscar, .caja, .recomendado,.top .nav{
+.top input, .top .buscar, .caja, .recomendado,.top .nav, .recomendados button{
     font-family: 'Raleway', sans-serif;
     font-size: 2rem;
     padding: 0.6rem;
@@ -28,11 +33,23 @@ body{
     border: solid 1px white;
     transition: 0.1s ;
 }
+
+.recomendados button{
+    font-size: 1rem;
+    width: 4rem;
+}
+.top button{
+    cursor: pointer;
+}
 .top button:hover{
     background-color: rgba(255,255,255,0.3);
     
 }
 .top button:focus{
+    outline: 1px white solid;
+    background-color: rgba(255,255,255,0.3);
+}
+button.seleccion{
     outline: 1px white solid;
     background-color: rgba(255,255,255,0.3);
 }
@@ -56,6 +73,7 @@ body{
     bottom: 0;
     border: none;
     border-left: solid 1px white;
+    cursor: pointer;
 }
 .top button img{
     cursor: pointer;
@@ -79,8 +97,9 @@ body{
     cursor: pointer;
     padding: 0.4rem;
 }
-
-
+.estado{
+    text-align: center;
+}
 .caja{
     width: 40%;
     height: 3.4rem;
@@ -163,8 +182,24 @@ body{
     cursor: pointer;
 }
 
+.nav{
+    height: 3.4rem;
+    width: 3.4rem;
+    cursor: pointer;
+    line-height: 0;
+}
+footer{
+    text-align: right;
+    padding: 1rem;
+}
+footer a{
+    color:white;
+    
+}
+
 @media only screen and (max-width: 600px) {
     .top .caja{
+        margin-top: 3rem;
         width: 99vw;
     }
     .postal{
@@ -183,6 +218,13 @@ body{
         transform: translate(0,50%);
         max-height: 100vh;
         width: 100vw;
+    }
+    .nav{
+        width: 50%;
+    }
+    .recomendados button{
+        height: 2rem;
+        line-height: 0;
     }
 
 }

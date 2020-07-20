@@ -14,21 +14,28 @@ class App extends React.Component{
             estado:"",
             siguiente:"",
             anterior:"",
-            contador:3,
-            postxpagina:10,
+            contador:0,
+            postxpagina:25,
+            buscarPor:"hot",
         }
         this.handleClick=this.handleClick.bind(this);
         this.handleKeyUp=this.handleKeyUp.bind(this);
         this.busqueda=this.busqueda.bind(this);
         this.cambio=this.cambio.bind(this);
+        this.cambioBuscar=this.cambioBuscar.bind(this);
     }
 
-    busqueda(sr,siguiente="",contador=this.state.postxpagina){
+    busqueda(sr=this.state.subreddit,siguiente="",contador=this.state.postxpagina,buscarx=this.state.buscarPor){
         document.getElementById("subreddit").value="";
         
-        this.setState({contador: contador});
-        const url=`https://www.reddit.com/r/${sr}/new/.json?limit=${this.state.postxpagina}&${siguiente}&count=${contador}`
-        console.log("2",url);
+        this.setState({contador: contador,buscarPor:buscarx});
+
+        if(siguiente===""){
+            contador=0;
+        }
+        const url=
+        `https://www.reddit.com/r/${sr}/${buscarx}/.json?limit=${this.state.postxpagina}&${siguiente}&count=${contador}`
+        
         this.setState({cargando:true, estado:"...",subreddit:sr});
         fetch(url)
         .then(res=>res.json())
@@ -55,7 +62,7 @@ class App extends React.Component{
             
         }).catch(error=>{
             //console.log(error)
-            this.setState({estado:"no encontrado"})
+            this.setState({estado:"no encontrado/not found"})
         });
     }
     cambio(siguiente){
@@ -64,6 +71,9 @@ class App extends React.Component{
         }else if(siguiente.includes("before")){
             this.busqueda(this.state.subreddit,siguiente,this.state.contador-this.state.postxpagina);
         }
+    }
+    cambioBuscar(buscarx){
+        this.busqueda(undefined,undefined,undefined,buscarx);
     }
 
     handleClick(){
@@ -88,23 +98,32 @@ class App extends React.Component{
         return(
         <div>
             <div className="top">
+                <div className="recomendados">
+                    <button className={this.state.buscarPor==="hot"?"seleccion":""} onClick={()=>this.cambioBuscar("hot")}>Hot</button>
+                    <button className={this.state.buscarPor==="new"?"seleccion":""} onClick={()=>this.cambioBuscar("new")}>New</button> 
+                </div>
                 <div className="caja">
                     <a href={"https://www.reddit.com/r/"+this.state.subreddit} className="prefijo">r/</a>
-                    <input label="buscar" placeholder={this.state.subreddit} spellCheck="false" onKeyUp={evt => this.handleKeyUp(evt)} id="subreddit"/>
+                    <input aria-label="buscar subreddit" placeholder={this.state.subreddit} spellCheck="false" onKeyUp={evt => this.handleKeyUp(evt)} id="subreddit"/>
                 <button id="buscar" className="buscar" onClick={this.handleClick}><img alt=">" src="https://www.queryly.com/images/whitesearchicon.png  "></img></button>
 
                 </div>
                 <Recomendados sr={this.state.subreddit} buscar={this.busqueda}/>
+                
             </div>
+            
             {!this.state.cargando?
             <div className="contenedor">
                 {postales}
             </div>
-            :this.state.estado}
+            :<h1 className="estado">{this.state.estado}</h1>}
 
             {!this.state.cargando?
                 <Navegacion estado={this.state} cambio={this.cambio}/>
             :null}
+            <footer>
+                <a href="https://github.com/KevinGrajeda">Kevin Grajeda 2020</a>
+            </footer>
         </div>)
     }
 }
