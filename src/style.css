@@ -46,11 +46,11 @@ body{
     
 }
 .top button:focus{
-    outline: 1px white solid;
+    /*outline: 1px white solid;*/
     background-color: rgba(255,255,255,0.3);
 }
 button.seleccion{
-    outline: 1px white solid;
+    /*outline: 1px white solid;*/
     background-color: rgba(255,255,255,0.3);
 }
 
